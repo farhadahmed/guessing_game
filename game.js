@@ -14,6 +14,19 @@ $(document).ready(function() {
     });
 })
 
+//Class of superhero
+function Superhero(name, power) {
+    this.name = name;
+    this.power = power;
+}
+
+//Superhero objects
+var captainAmerica = new Superhero("Captain America", "When he wields his shield, all who oppose his shield must yield!");
+var ironMan = new Superhero("Iron-Man", "A suit of armor");
+var thor = new Superhero("Thor", "A mighty hammer");
+var hulk = new Superhero("Hulk", "His fists smash.");
+var hawkeye = new Superhero("Hawkeye", "A bow and arrow");
+
 //THIS IS THE SCRIPT FOR THE GAME
 var game = function() {
   var team, guess, answer, message, heroes, counter;
