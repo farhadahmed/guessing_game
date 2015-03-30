@@ -28,7 +28,7 @@ var hulk = new Superhero("Hulk", "His fists smash.");
 var hawkeye = new Superhero("Hawkeye", "A bow and arrow");
 
 //Array of heroes.  Their names are the possible answers to the question.
-var heroObjects = [captainAmerica, ironMan, thor, hulk, hawkeye];
+var heroObjects = [ironMan];//[captainAmerica, ironMan, thor, hulk, hawkeye];
 
 //THIS IS THE SCRIPT FOR THE GAME
 var game = function() {
@@ -39,17 +39,18 @@ var game = function() {
   var removeSpaceDash = function(name) {
     name = name.replace(/\s/, '');
     name = name.replace('-', '');
+    return name;
   }
 
   //Chooses a random number and then assigns that value in the array to var answer.
   answer = Math.floor(Math.random() * heroObjects.length); //0 to 4
   answer = heroObjects[answer].name;
   answerCAPS = answer.toUpperCase();
-  removeSpaceDash(answerCAPS);
+  answerCAPS = removeSpaceDash(answerCAPS);
 
   //Converts users guess to caps and removes all spaces/dashes
   guess = prompt('Which superhero am I thinking of?').toUpperCase();
-  removeSpaceDash(guess);
+  guess = removeSpaceDash(guess);
 
   if (guess === answerCAPS) {
     message = 'You win! The correct answer is ' + answer + '!';
@@ -57,8 +58,8 @@ var game = function() {
   else {
     //As long as counter > 0 and guess is incorrect, this code will run and subtract 1 from var counter.
     do {
-      guess = prompt('Incorrect. You have ' + counter + ' tries left. \nWhich hero am I thinking of?').toUpperCase();
-      removeSpaceDash(guess);
+      guess = prompt('Incorrect. You have ' + counter + ' tries left. \nWhich hero am I thinking of?\n' + guess + answerCAPS).toUpperCase();
+      guess = removeSpaceDash(guess);
       counter--;
     } while (guess !== answerCAPS && counter > 0);
 
