@@ -28,7 +28,7 @@ var hulk = new Superhero("Hulk", "His fists smash.");
 var hawkeye = new Superhero("Hawkeye", "A bow and arrow");
 
 //Array of heroes.  Their names are the possible answers to the question.
-var heroObjects = [ironMan];//[captainAmerica, ironMan, thor, hulk, hawkeye];
+var heroObjects = [captainAmerica, ironMan, thor, hulk, hawkeye];
 
 //THIS IS THE SCRIPT FOR THE GAME
 var game = function() {
@@ -58,7 +58,7 @@ var game = function() {
   else {
     //As long as counter > 0 and guess is incorrect, this code will run and subtract 1 from var counter.
     do {
-      guess = prompt('Incorrect. You have ' + counter + ' tries left. \nWhich hero am I thinking of?\n' + guess + answerCAPS).toUpperCase();
+      guess = prompt('Incorrect. You have ' + counter + ' tries left. \nWhich hero am I thinking of?').toUpperCase();
       guess = removeSpaceDash(guess);
       counter--;
     } while (guess !== answerCAPS && counter > 0);
