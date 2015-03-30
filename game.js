@@ -43,8 +43,8 @@ var game = function() {
   }
 
   //Chooses a random number and then assigns that value in the array to var answer.
-  answer = Math.floor(Math.random() * heroObjects.length); //0 to 4
-  answer = heroObjects[answer].name;
+  var randomArrayVal = Math.floor(Math.random() * heroObjects.length); //0 to 4
+  answer = heroObjects[randomArrayVal].name;
   answerCAPS = answer.toUpperCase();
   answerCAPS = removeSpaceDash(answerCAPS);
 
@@ -58,7 +58,8 @@ var game = function() {
   else {
     //As long as counter > 0 and guess is incorrect, this code will run and subtract 1 from var counter.
     do {
-      guess = prompt('Incorrect. You have ' + counter + ' tries left. \nWhich hero am I thinking of?').toUpperCase();
+      guess = prompt('Incorrect. You have ' + counter + ' tries left.' +
+        '\nWhich hero am I thinking of? \nHere\'s a hint. Hero\'s power: ' + heroObjects[randomArrayVal].power).toUpperCase();
       guess = removeSpaceDash(guess);
       counter--;
     } while (guess !== answerCAPS && counter > 0);
