@@ -21,14 +21,16 @@ function Superhero(name, power) {
 }
 
 //Superhero objects
-var captainAmerica = new Superhero("Captain America", "When he wields his shield, all who oppose his shield must yield!");
-var ironMan = new Superhero("Iron-Man", "A suit of armor");
-var thor = new Superhero("Thor", "A mighty hammer");
-var hulk = new Superhero("Hulk", "His fists smash.");
-var hawkeye = new Superhero("Hawkeye", "A bow and arrow");
+var captainAmerica = new Superhero('Captain America', 'When he wields his shield, all who oppose his shield must yield!');
+var ironMan = new Superhero('Iron-Man', 'A suit of armor.');
+var thor = new Superhero('Thor', 'A mighty hammer');
+var hulk = new Superhero('Hulk', 'His fists smash.');
+var hawkeye = new Superhero('Hawkeye', 'A bow and arrow.');
+var batman = new Superhero ('Batman', 'Genius intellect and a martial artist.')
+var spiderMan = new Superhero ('Spider-Man', 'Spinning a web of any size, he catches thieves just like flies.')
 
 //Array of heroes.  Their names are the possible answers to the question.
-var heroObjects = [captainAmerica, ironMan, thor, hulk, hawkeye];
+var heroObjects = [captainAmerica, ironMan, thor, hulk, hawkeye, batman, spiderMan];
 
 //THIS IS THE SCRIPT FOR THE GAME
 var game = function() {
@@ -59,7 +61,7 @@ var game = function() {
     //As long as counter > 0 and guess is incorrect, this code will run and subtract 1 from var counter.
     do {
       guess = prompt('Incorrect. You have ' + counter + ' tries left.' +
-        '\nWhich hero am I thinking of? \nHere\'s a hint. Hero\'s power: ' + heroObjects[randomArrayVal].power).toUpperCase();
+        '\nHere\'s a hint. Hero\'s power: ' + heroObjects[randomArrayVal].power).toUpperCase();
       guess = removeSpaceDash(guess);
       counter--;
     } while (guess !== answerCAPS && counter > 0);
