@@ -7,11 +7,13 @@
 
     <script type="text/javascript">
       (function () {
-          var team, guess, answer, message, heroes, counter;
+          var team, guess, answer, message, counter;
   counter = 5;
 
-  //Array of heroes.  These are the possible answers to the question.
-  heroes = ['BATMAN', 'IRONMAN', 'THOR', 'HULK', 'SUPERMAN'];
+  //Array of DC heroes - these are possible answers.
+  dcHeroes = ['BATMAN', 'SUPERMAN', 'WONDERWOMAN'];
+  //Array of Marvel heroes - these are possible answers.
+  marvelHeroes = ['BLACK WIDOW', 'HAWKEYE','THOR'];
 
   //Removes all spaces and dashes from user's guess
   var removeSpaceDash = function() {
@@ -20,12 +22,25 @@
   }
 
   //Chooses a random number and then assigns that value in the array to var answer.
-  answer = Math.floor(Math.random() * heroes.length) //0 to 4
-  answer = heroes[answer];
+  arrayPick = Math.floor(Math.random() * 2)
+  if (arrayPick === 0) {
+      var universe = dcHeroes;
+  } else {
+      var universe = marvelHeroes;
+  };
 
-  //Converts users guess to caps and removes all spaces/dashes
-  guess = prompt('Which superhero am I thinking of?').toUpperCase();
+  //Chooses a random number and then assigns that value in the array to var answer.
+  answer = Math.floor(Math.random() * universe.length) // 0 to 2
+  answer = universe[answer];
+
+  //Provides a hint about the superhero's universe.
+  if (universe === dcHeroes) {
+  guess = prompt('Which DC superhero am I thinking of?').toUpperCase();
   removeSpaceDash();
+  } else {
+  guess = prompt('Which Marvel superhero am I thinking of?').toUpperCase();
+  removeSpaceDash();
+  }
 
   if (guess === answer) {
     message = 'You win! The correct answer is ' + answer + '!';
