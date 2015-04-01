@@ -7,7 +7,12 @@
 
     <script type="text/javascript">
       (function () {
-          var guess, answer, message, heroes, counter;
+
+        var Game = function(guess, answer) {
+          this.guess = guess;
+          this.answer = answer;
+        }
+        var message, heroes, counter;
         counter = 5;
 
         //Array of DC heroes - these are possible answers.
@@ -15,31 +20,32 @@
 
         //Removes all spaces and dashes from user's guess
         var removeSpaceDash = function() {
-          guess = guess.replace(/\s/, '');
-          guess = guess.replace('-', '');
+          Game.guess = Game.guess.replace(/\s/, '');
+          Game.guess = Game.guess.replace('-', '');
         };
 
         //Chooses a random number and then assigns that value in the array to var answer.
-        answer = Math.floor(Math.random() * heroes.length) // 0 to 2
-        answer = heroes[answer];
+        Game.answer = Math.floor(Math.random() * heroes.length); // 0 to 2
+        Game.answer = heroes[Game.answer];
 
-        guess = prompt('Which superhero am I thinking of?').toUpperCase();
+        Game.guess = prompt('Which superhero am I thinking of?').toUpperCase();
+        removeSpaceDash();
 
-        if (guess === answer) {
-          message = 'You win! The correct answer is ' + answer + '!';
+        if (Game.guess === Game.answer) {
+          message = 'You win! The correct answer is ' + Game.answer + '!';
         }
         else {
-          //As long as counter > 0 and guess is incorrect, this code will run and subtract 1 from var counter.
+          //As long as counter > 0 and Game.guess is incorrect, this code will run and subtract 1 from var counter.
           do {
-            guess = prompt('Incorrect. You have ' + counter + ' tries left. \nWhich hero am I thinking of?').toUpperCase();
+            Game.guess = prompt('Incorrect. You have ' + counter + ' tries left. \nWhich hero am I thinking of?').toUpperCase();
             removeSpaceDash();
             counter--;
-          } while (guess !== answer && counter > 0);
-          if (guess == answer) {
-            message = 'You win! The correct answer is ' + answer + '!';
+          } while (Game.guess !== Game.answer && counter > 0);
+          if (Game.guess == Game.answer) {
+            message = 'You win! The correct answer is ' + Game.answer + '!';
           }
           else {
-            message = 'You are out of tries. The correct answer was ' + answer + '.';
+            message = 'You are out of tries. The correct answer was ' + Game.answer + '.';
           }
         }//end else
         alert(message);
