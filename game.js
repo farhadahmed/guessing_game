@@ -22,14 +22,14 @@ function Superhero(name, hint) {
 
 //Superhero objects
 var captainAmerica = new Superhero('Captain America', 'When he wields his shield, all who oppose his shield must yield!');
-var ironMan = new Superhero('Iron-Man', 'A suit of armor.');
-var thor = new Superhero('Thor', 'A mighty hammer');
+var ironMan = new Superhero('Iron-Man', 'He wears a suit of armor.');
+var thor = new Superhero('Thor', 'A wields a mighty hammer');
 var hulk = new Superhero('Hulk', 'His fists smash.');
-var hawkeye = new Superhero('Hawkeye', 'A bow and arrow.');
+var hawkeye = new Superhero('Hawkeye', 'He fights with a bow and arrow.');
 var batman = new Superhero ('Batman', 'Genius intellect and a martial artist.');
 var spiderMan = new Superhero ('Spider-Man', 'Spinning a web of any size, he catches thieves just like flies.');
-var flash = new Superhero('Flash', 'Speed');
-var greenLantern = new Superhero ('Green Lantern', '"In brightest day, in blackest night, no evil shall escape my sight."')
+var flash = new Superhero('Flash', 'He goes by in a _____.');
+var greenLantern = new Superhero ('Green Lantern', '"In brightest day, in blackest night, no evil shall escape my sight."');
 
 
 //Array of heroes.  Their names are the possible answers to the question.
