@@ -31,7 +31,6 @@ var spiderMan = new Superhero ('Spider-Man', 'Spinning a web of any size, he cat
 var flash = new Superhero('Flash', 'He goes by in a _____.');
 var greenLantern = new Superhero ('Green Lantern', '"In brightest day, in blackest night, no evil shall escape my sight."');
 
-
 //Array of heroes.  Their names are the possible answers to the question.
 var heroObjects = [captainAmerica, ironMan, thor, hulk, hawkeye, batman, spiderMan, flash, greenLantern];
 
