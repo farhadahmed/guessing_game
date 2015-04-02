@@ -16,11 +16,17 @@
             this.guess = this.guess.replace(/\s/, '');
             this.guess = this.guess.replace('-', '');
           };
+          this.Superhero = function(name, hint) {
+            this.name = name;
+            this.hint = hint;
+          }
         };
 
         var game1 = new Game();
         var message, heroes, counter;
         counter = 5;
+
+        game1.Superhero.captainAmerica = new Superhero('Captain America', 'When he wields his shield, all who oppose his shield must yield!');
 
         //Array of DC heroes - these are possible answers.
         heroes = ['BATMAN', 'SUPERMAN', 'WONDERWOMAN'];
