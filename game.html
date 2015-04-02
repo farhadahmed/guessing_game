@@ -7,11 +7,11 @@
 
     <script type="text/javascript">
       (function () {
-
+        //Constructor function
         var Game = function(guess, answer) {
           this.guess = guess;
           this.answer = answer;
-          //Removes all spaces and dashes from user's guess
+          //This method removes all spaces and dashes from user's guess
           this.removeSpaceDash = function() {
             this.guess = this.guess.replace(/\s/, '');
             this.guess = this.guess.replace('-', '');
