@@ -7,61 +7,49 @@
 
     <script type="text/javascript">
       (function () {
-          var team, guess, answer, message, counter;
-  counter = 5;
+        //Constructor function
+        var Game = function(guess, answer) {
+          this.guess = guess;
+          this.answer = answer;
+          //This method removes all spaces and dashes from user's guess
+          this.removeSpaceDash = function() {
+            this.guess = this.guess.replace(/\s/, '');
+            this.guess = this.guess.replace('-', '');
+          };
+        };
 
-  //Array of DC heroes - these are possible answers.
-  dcHeroes = ['BATMAN', 'SUPERMAN', 'WONDERWOMAN'];
-  //Array of Marvel heroes - these are possible answers.
-  marvelHeroes = ['BLACK WIDOW', 'HAWKEYE','THOR'];
+        var game1 = new Game();
+        var message, heroes, counter;
+        counter = 5;
 
-  //Removes all spaces and dashes from user's guess
-  var removeSpaceDash = function() {
-    guess = guess.replace(/\s/, '');
-    guess = guess.replace('-', '');
-  }
+        //Array of DC heroes - these are possible answers.
+        heroes = ['BATMAN', 'SUPERMAN', 'WONDERWOMAN'];
 
-  //Chooses a random number and then assigns that value in the array to var answer.
-  arrayPick = Math.floor(Math.random() * 2)
-  if (arrayPick === 0) {
-      var universe = dcHeroes;
-  } else {
-      var universe = marvelHeroes;
-  };
+        //Chooses a random number and then assigns that value in the array to var answer.
+        game1.answer = Math.floor(Math.random() * heroes.length); // 0 to 2
+        game1.answer = heroes[game1.answer];
 
-  //Chooses a random number and then assigns that value in the array to var answer.
-  answer = Math.floor(Math.random() * universe.length) // 0 to 2
-  answer = universe[answer];
+        game1.guess = prompt('Which superhero am I thinking of?').toUpperCase();
+        game1.removeSpaceDash();
 
-  //Provides a hint about the superhero's universe.
-  if (universe === dcHeroes) {
-  guess = prompt('Which DC superhero am I thinking of?').toUpperCase();
-  removeSpaceDash();
-  } else {
-  guess = prompt('Which Marvel superhero am I thinking of?').toUpperCase();
-  removeSpaceDash();
-  }
-
-  if (guess === answer) {
-    message = 'You win! The correct answer is ' + answer + '!';
-  }
-  else {
-    //As long as counter > 0 and guess is incorrect, this code will run and subtract 1 from var counter.
-    do {
-      guess = prompt('Incorrect. You have ' + counter + ' tries left. \nWhich hero am I thinking of?').toUpperCase();
-      removeSpaceDash();
-      counter--;
-    } while (guess !== answer && counter > 0);
-
-    if (guess == answer) {
-      message = 'You win! The correct answer is ' + answer + '!';
-    }
-    else {
-      message = 'You are out of tries. The correct answer was ' + answer + '.';
-    }
-  }//end else
-
-  alert(message);
+        if (game1.guess === game1.answer) {
+          message = 'You win! The correct answer is ' + game1.answer + '!';
+        }
+        else {
+          //As long as counter > 0 and Game.guess is incorrect, this code will run and subtract 1 from var counter.
+          do {
+            game1.guess = prompt('Incorrect. You have ' + counter + ' tries left. \nWhich hero am I thinking of?').toUpperCase();
+            game1.removeSpaceDash();
+            counter--;
+          } while (game1.guess !== game1.answer && counter > 0);
+          if (game1.guess == game1.answer) {
+            message = 'You win! The correct answer is ' + game1.answer + '!';
+          }
+          else {
+            message = 'You are out of tries. The correct answer was ' + game1.answer + '.';
+          }
+        }//end else
+        alert(message);
       })();
     </script>
 
