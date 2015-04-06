@@ -11,14 +11,17 @@ p {
   font-size: 20px;
 }
 
-form {
-  text-align: center;
-  font-size: 20px;
-}
-
 input {
   height: 30px;
   font-size: 20px;
+}
+
+div {
+  background-color: #99CCFF;
+  height: 40px;
+  width: 400px;
+  margin: auto;
+  padding:10px;
 }
 
 a {
