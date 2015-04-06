@@ -16,10 +16,15 @@ input {
   font-size: 20px;
 }
 
-div {
+#in {
+  text-align: center;
+  padding: 10px;
+}
+
+#out {
   background-color: #99CCFF;
   height: 40px;
-  width: 400px;
+  width: 800px;
   margin: auto;
   padding:10px;
 }

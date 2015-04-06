@@ -1,9 +1,10 @@
 
 function startGame() {
   //Constructor function
-  var Game = function(guess, answer, randomArrayVal) {
+  var Game = function(guess, answer, randomArrayVal, wrong) {
     this.guess = guess;
     this.answer = answer;
+    this.wrong = wrong;
     this.randomArrayVal = randomArrayVal;
     //This method removes all spaces and dashes from user's guess
     this.removeSpaceDash = function() {
@@ -17,21 +18,20 @@ function startGame() {
   };
 
   var game1 = new Game();
-  var message, heroes, counter, output;
+  var message, heroes, output;
   output = document.getElementById('output');
-  counter = 5;
 
-  var Superhero = function(name, hint) {
+  var Superhero = function(name) {
     this.name = name;
-    this.hint = hint;
   };
 
-  var batman = new Superhero ('Batman', 'Genius intellect and a martial artist.');
-  //var thor = new Superhero('Thor', 'He wields a mighty hammer');
+  var batman = new Superhero ('Batman');
+  var thor = new Superhero('Thor');
+  var ironMan = new Superhero('Iron-Man')
 
 
   //Array of DC heroes - these are possible answers.
-  heroes = [batman];
+  heroes = [batman, thor, ironMan];
 
   //Chooses a random number and then assigns that value in the array to var answer.
   game1.randomArrayVal = Math.floor(Math.random() * heroes.length); // 0 to 2
@@ -47,18 +47,7 @@ function startGame() {
     message = 'You win! The correct answer is ' + game1.answer + '!';
   }
   else {
-    //As long as counter > 0 and Game.guess is incorrect, this code will run and subtract 1 from var counter.
-    do {
-      game1.guess = prompt('Incorrect. You have ' + counter + ' tries left. \nHere\'s a hint: ' + heroes[game1.randomArrayVal].hint).toUpperCase();
-      game1.removeSpaceDash();
-      counter--;
-    } while (game1.guess !== game1.answerCAPS && counter > 0);
-    if (game1.guess == game1.answerCAPS) {
-      message = 'You win! The correct answer is ' + game1.answer + '!';
-    }
-    else {
-      message = 'You are out of tries. The correct answer was ' + game1.answer + '.';
-    }
+    message = 'Incorrect. The correct answer was ' + game1.answer + '.';
   }//end else
   //alert(message);
   output.appendChild(document.createTextNode(message));
