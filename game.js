@@ -17,7 +17,8 @@ function startGame() {
   };
 
   var game1 = new Game();
-  var message, heroes, counter;
+  var message, heroes, counter, output;
+  output = document.getElementById('output');
   counter = 5;
 
   var Superhero = function(name, hint) {
@@ -26,11 +27,11 @@ function startGame() {
   };
 
   var batman = new Superhero ('Batman', 'Genius intellect and a martial artist.');
-  var thor = new Superhero('Thor', 'He wields a mighty hammer');
+  //var thor = new Superhero('Thor', 'He wields a mighty hammer');
 
 
   //Array of DC heroes - these are possible answers.
-  heroes = [batman, thor];
+  heroes = [batman];
 
   //Chooses a random number and then assigns that value in the array to var answer.
   game1.randomArrayVal = Math.floor(Math.random() * heroes.length); // 0 to 2
@@ -38,7 +39,7 @@ function startGame() {
   game1.answerCAPS = game1.answer.toUpperCase();
   game1.ansSpaceDash();
 
-
+  //Grabbing the value of the input textbox
   game1.guess = document.getElementById('guess').value.toUpperCase();
   game1.removeSpaceDash();
 
@@ -59,5 +60,6 @@ function startGame() {
       message = 'You are out of tries. The correct answer was ' + game1.answer + '.';
     }
   }//end else
-  alert(message);
+  //alert(message);
+  output.appendChild(document.createTextNode(message));
 };
